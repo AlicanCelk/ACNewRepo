@@ -1,0 +1,40 @@
+﻿@model User
+@{
+    ViewData["Title"] = "TagHelperSample";
+}
+
+<h2>TagHelperSample</h2>
+
+<div class="row" style="margin-top:50px;">
+    <div class="col-lg-4 col-lg-offset-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+               
+
+
+                @* asp-action helper'ı ile formun içerisindeki giriş yap butonuna basıldığında, giriş işleminin yapılacağı action metoda yönlendirme yapar. *@
+                <form asp-action="TagHelperSample" asp-controller="Home" method="post" class="form-group">
+
+                    @* Input ve label gibi yapıları oluştururken, Html.TextBoxFor() gibi içerisinde lambda ifadeleri kullanılan karmaşık yapıları kullanmak yerine aşağıdaki yöntem kullanılabilir. *@
+                    @* asp-for, sayfanın modeli olarak belirttiğimiz sınıfın propertylerini seçmemizi sağlar. Böylece HTML kontrolün (input vs.), sayfanın modelindeki nesneye bağlanması sağlanır. HTMLhelper yapısındaki gibi karmaşık ifadeleri kullanmaya gerek kalmaz. *@
+
+                    <div class="form-group">
+                        <label asp-for="UserName">Kullanıcı Adı</label>
+                        <input asp-for="UserName" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password">Parola</label>
+                        <input asp-for="Password" type="password" class="form-control" />
+                    </div>
+
+                    @* Butona basıldığında form elementinde tanımlanan asp-action ile belirtilen action metoda yönledirme yapılacaktır. *@
+                    <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

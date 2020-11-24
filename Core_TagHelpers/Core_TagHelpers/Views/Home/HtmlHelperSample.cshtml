@@ -1,0 +1,32 @@
+﻿@model User
+@{
+    ViewData["Title"] = "HtmlHelperSample";
+}
+
+<h2>HtmlHelperSample</h2>
+
+<div class="row" style="margin-top:50px;">
+    <div class="col-lg-4 col-lg-offset-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @* Html.BeginForm("ActionName","ControllerName",FormMethod) *@
+                @using (Html.BeginForm("HtmlHelperSample", "Home", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <label for="userName">Kullanıcı Adı</label>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Parola</label>
+                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "password" })
+
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
